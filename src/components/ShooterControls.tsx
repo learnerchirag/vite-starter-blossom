@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowDown, Zap, X, Volume2, VolumeX } from 'lucide-react';
 import { soundManager } from '../utils/soundEffects';
@@ -95,40 +94,37 @@ const ShooterControls: React.FC<ShooterControlsProps> = ({
         </button>
       </div>
       
-      {/* Barrel visualization */}
-      <div className="relative h-16 mb-8 flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-cyber-grid bg-cyber-grid-size opacity-20"></div>
-        <div className="relative z-10 w-full h-8 bg-cyber-dark border-y-2 border-cyber-core/30 flex items-center">
-          {Array(divisor).fill(0).map((_, i) => (
-            <div key={i} className="flex-1 flex justify-center">
-              <div className={`w-4 h-12 bg-cyber-accent/70 rounded-b-sm relative top-2 ${firingBarrel === i ? 'barrel-fire' : ''}`}>
-                <div className="absolute -top-2 left-0 right-0 h-2 bg-cyber-accent rounded-t-sm"></div>
+      {/* Main control area with grid layout */}
+      <div className="grid grid-cols-2 gap-4 mb-6">
+        {/* Left column - Barrel visualization */}
+        <div className="relative h-full flex items-center border border-cyber-core/30 rounded-md p-2">
+          <div className="absolute inset-0 bg-cyber-grid bg-cyber-grid-size opacity-20"></div>
+          <div className="relative z-10 w-full flex flex-col gap-4">
+            {Array(divisor).fill(0).map((_, i) => (
+              <div key={i} className="h-12 flex items-center">
+                <div className={`w-16 h-8 bg-cyber-accent/70 rounded-r-sm relative 
+                  ${firingBarrel === i ? 'barrel-fire' : ''}`}>
+                  <div className="absolute top-0 bottom-0 right-0 w-2 bg-cyber-accent rounded-r-sm"></div>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-        
-        {/* Barrel number indicator */}
-        <div className="absolute bottom-0 left-0 right-0 flex justify-center">
-          <div className="bg-black/50 px-3 py-1 rounded-md border border-cyber-core/30">
-            <span className="text-sm text-cyber-core">×{divisor}</span>
+            ))}
           </div>
         </div>
-      </div>
-      
-      {/* Preset quotient buttons */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
-        {quotientOptions.map((option) => (
-          <button
-            key={option}
-            onClick={() => gameStatus === 'playing' && handlePresetShot(option)}
-            disabled={gameStatus !== 'playing'}
-            className={`cyber-button rounded-full w-16 h-16 mx-auto flex items-center justify-center
+        
+        {/* Right column - Quotient buttons */}
+        <div className="grid grid-rows-3 gap-4">
+          {quotientOptions.map((option) => (
+            <button
+              key={option}
+              onClick={() => gameStatus === 'playing' && handlePresetShot(option)}
+              disabled={gameStatus !== 'playing'}
+              className={`cyber-button rounded-full w-16 h-16 mx-auto flex items-center justify-center
                        ${activeShooter === option ? 'animate-shoot' : ''}`}
-          >
-            <span className="text-xl font-bold">{option}</span>
-          </button>
-        ))}
+            >
+              <span className="text-xl font-bold">{option}</span>
+            </button>
+          ))}
+        </div>
       </div>
       
       {/* Custom quotient control */}

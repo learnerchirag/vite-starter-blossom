@@ -52,15 +52,15 @@
 /* Barrel firing animation */
 @keyframes barrelFire {
   0% {
-    transform: translateY(0);
+    transform: translateX(0);
     background-color: rgba(51, 195, 240, 0.7);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateX(-10px);
     background-color: rgba(230, 126, 34, 1);
   }
   100% {
-    transform: translateY(0);
+    transform: translateX(0);
     background-color: rgba(51, 195, 240, 0.7);
   }
 }
@@ -71,7 +71,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(0.8) translateY(-5px);
+    transform: scale(0.8) translateX(-5px);
     background-color: rgba(230, 126, 34, 1);
     box-shadow: 0 0 20px rgba(230, 126, 34, 0.8), inset 0 0 10px rgba(230, 126, 34, 0.8);
   }
