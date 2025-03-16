@@ -1,5 +1,5 @@
 
-import DivisionBreaker from "../components/DivisionBreaker";
+import { DivisionBreaker } from "../components";
 import { BUILD_ID } from "../utils/buildIdentifier";
 
 const Index = () => {
