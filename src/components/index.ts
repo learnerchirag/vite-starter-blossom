@@ -1,2 +1,2 @@
 
-export { default as DivisionBreaker } from './DivisionBreaker';
+export { default as DivisionBreaker } from './DivisionBreaker.tsx';
