@@ -8,7 +8,13 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 // Create a new client for React Query
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
