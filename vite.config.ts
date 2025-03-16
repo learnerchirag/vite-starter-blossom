@@ -13,5 +13,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/vite-starter-blossom/",
+  base: "/vite-starter-blossom",
 }));
