@@ -54,7 +54,7 @@
 /* Custom Game Styles */
 @layer components {
   .cyber-text {
-    text-shadow: 0 0 5px rgba(51, 195, 240, 0.5), 0 0 10px rgba(51, 195, 240, 0.3);
+    text-shadow: 0 0 5px rgba(51, 195, 240, 0.5), 0 0 12px rgba(51, 195, 240, 0.3);
   }
   
   .cyber-button {
